@@ -1,3 +1,73 @@
+/*
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    height: 50vh;
+    width: 100vh;
+    padding: 20px;
+    min-height: 100vh;
+    border: 2px solid green;
+    margin-left: 25%;
+}
+
+header{
+    text-align: center;
+    color: purple;
+    margin-bottom: 2px;
+
+}
+
+.search-section{
+    display: flex;  
+    flex-direction: column;
+    margin-bottom: 30px;
+    justify-content: center;
+    gap: 15px;
+    height: max-content;
+}
+
+.city-Inputs{
+    padding: 15px; 
+    font-size: 15px;
+    border: 2px solid burlywood;
+    border-radius: 10px;
+    height: 80px;
+}
+
+.city-Inputs:focus{
+    background-color: rgb(209, 209, 243);
+    border: 2px solid rgb(12, 12, 158);
+}
+
+.search-btn{
+    padding: 15px 25px;
+    margin-left: 45%;
+    font-size: 1.2rem;
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.search-btn:hover{
+    background-color: rgba(15, 15, 201, 0.664);
+}
+
+.search-btn:active{
+    transform: translateY(2px);
+} 
+
+Miss Codes
+*/
+
+
 /* Reset */
 * {
     box-sizing: border-box;
