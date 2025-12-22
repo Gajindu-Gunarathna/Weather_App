@@ -198,3 +198,87 @@ header p {
     color: #e67e22;
     margin-bottom: 10px;
 }
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
+/* Loading text (matches your HTML <p>) */
+.container > p {
+    margin: 15px 0;
+    font-size: 1rem;
+    color: #3498db;
+    font-weight: 500;
+}
+
+/* Weather description */
+.description p {
+    font-size: 1.1rem;
+    color: #555;
+    text-transform: capitalize;
+}
+
+/* Weather details section */
+.weather-deatils {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Each detail item */
+.detail-item {
+    background-color: #f4f6fb;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+}
+
+/* Labels */
+.detail-item .label {
+    font-weight: 600;
+    color: #555;
+}
+
+/* Temperature unit */
+.unit {
+    font-size: 1.5rem;
+    vertical-align: super;
+    margin-left: 4px;
+}
+
+/* Smooth appearance animation */
+.weather-dislay,
+.error {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+}
