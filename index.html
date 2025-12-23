@@ -10,22 +10,19 @@
     <!--Weather App-->
     <div class = "container">
         
-        <header>
-            <h1>Weather App</h1>
-            <p>Get the current weather of Any state</p>
-            
-        </header>
-
-        <!-- Dark Mode Toggle -->
-        <div class="theme-toggle">
-            <span>🌞</span>
-            <label class="switch">
+        <header class="app-header">
+            <div class="title">
+                <h1>Weather App</h1>
+                <p>Get the current weather of any state</p>
+            </div>
+        
+            <!-- Dark Mode Toggle -->
+            <label class="switch theme-switch">
                 <input type="checkbox" id="themeToggle">
                 <span class="slider"></span>
             </label>
-            <span>🌙</span>
-        </div>
-
+        </header>
+        
         <div class="search-section">
             <input type="text" name ="cityInput" id="cityInput" placeholder="Enter the city name" class="city-Inputs">
             
