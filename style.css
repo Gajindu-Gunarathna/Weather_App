@@ -1,105 +1,74 @@
-/*
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* =========================
+   GLOBAL RESET & VARIABLES
+========================= */
+:root {
+    --primary: #5c6bc0;
+    --secondary: #26c6da;
+    --accent: #ffb74d;
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.container{
-    height: 50vh;
-    width: 100vh;
-    padding: 20px;
-    min-height: 100vh;
-    border: 2px solid green;
-    margin-left: 25%;
+/* Dark Theme Variables */
+body.dark {
+    --card-bg: rgba(30, 30, 40, 0.9);
+    --text-dark: #f1f1f1;
+    --primary: #90caf9;
+    --secondary: #4dd0e1;
+    --accent: #ffcc80;
 }
 
-header{
-    text-align: center;
-    color: purple;
-    margin-bottom: 2px;
-
+body.dark {
+    background: linear-gradient(135deg, #141e30, #243b55);
 }
 
-.search-section{
-    display: flex;  
-    flex-direction: column;
-    margin-bottom: 30px;
-    justify-content: center;
-    gap: 15px;
-    height: max-content;
-}
 
-.city-Inputs{
-    padding: 15px; 
-    font-size: 15px;
-    border: 2px solid burlywood;
-    border-radius: 10px;
-    height: 80px;
-}
-
-.city-Inputs:focus{
-    background-color: rgb(209, 209, 243);
-    border: 2px solid rgb(12, 12, 158);
-}
-
-.search-btn{
-    padding: 15px 25px;
-    margin-left: 45%;
-    font-size: 1.2rem;
-    background-color: burlywood;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-}
-
-.search-btn:hover{
-    background-color: rgba(15, 15, 201, 0.664);
-}
-
-.search-btn:active{
-    transform: translateY(2px);
-} 
-
-Miss Codes
-*/
-
-
-/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-/* Page background */
+/* =========================
+   PAGE BACKGROUND
+========================= */
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #74ebd5, #9face6);
+    padding: 20px;
 }
 
-/* Main container */
+/* =========================
+   MAIN CONTAINER (GLASS)
+========================= */
 .container {
     width: 100%;
     max-width: 420px;
-    background-color: #ffffff;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
     text-align: center;
+    animation: scaleIn 0.4s ease;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
 header h1 {
-    color: #4a148c;
-    margin-bottom: 8px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
 }
 
 header p {
@@ -108,159 +77,165 @@ header p {
     margin-bottom: 25px;
 }
 
-/* Search section */
+/* =========================
+   SEARCH SECTION
+========================= */
 .search-section {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
-/* Input field */
 .city-Inputs {
     width: 100%;
-    padding: 14px 16px;
+    padding: 15px 18px;
     font-size: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 2px solid transparent;
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f4f6fb;
+    transition: all 0.3s ease;
 }
 
 .city-Inputs::placeholder {
-    color: #aaa;
+    color: #999;
 }
 
 .city-Inputs:focus {
-    border-color: #5c6bc0;
-    box-shadow: 0 0 6px rgba(92, 107, 192, 0.4);
+    border-color: var(--primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.2);
 }
 
-/* Button */
+/* =========================
+   SEARCH BUTTON
+========================= */
 .search-btn {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     font-size: 1.1rem;
-    background-color: #5c6bc0;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    transition: transform 0.15s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
 .search-btn:hover {
-    background-color: #3f51b5;
-    box-shadow: 0 6px 15px rgba(63, 81, 181, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(92, 107, 192, 0.4);
 }
 
-/* Click effect */
 .search-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 3px 8px rgba(63, 81, 181, 0.4);
+    transform: translateY(1px);
 }
 
-.loading{
-    text-align: center;
-    padding: 20px;
-    color: #3498db;
-    font-size: 1.1rem;
-}
-
-.error{
-    background-color: #e74c3c;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.weather-dislay{
-    background-color: white;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 1);
-    text-align: center;
-}
-
-.weather-dislay h2{
-    color: #2c3e50;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.weather-info{
-    margin-bottom: 25px;
-}
-
-.temperature{
-    font-size: 3rem;
-    font-weight: bold;
-    color: #e67e22;
-    margin-bottom: 10px;
-}
-
-/* Utility */
-.hidden {
-    display: none;
-}
-
-/* Loading text (matches your HTML <p>) */
-.container > p {
-    margin: 15px 0;
+/* =========================
+   LOADING & ERROR
+========================= */
+.loading {
+    margin: 18px 0;
     font-size: 1rem;
-    color: #3498db;
+    color: var(--primary);
     font-weight: 500;
 }
 
-/* Weather description */
+.error {
+    background: linear-gradient(135deg, #ff6b6b, #e74c3c);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    animation: shake 0.4s ease;
+}
+
+/* =========================
+   WEATHER DISPLAY CARD
+========================= */
+.weather-dislay {
+    margin-top: 20px;
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    animation: fadeUp 0.4s ease;
+}
+
+.weather-dislay h2 {
+    color: var(--text-dark);
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   MAIN WEATHER INFO
+========================= */
+.weather-info {
+    margin-bottom: 25px;
+}
+
+.temperature {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.unit {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
 .description p {
     font-size: 1.1rem;
     color: #555;
     text-transform: capitalize;
 }
 
-/* Weather details section */
+/* =========================
+   DETAILS GRID
+========================= */
 .weather-deatils {
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
-    margin-top: 20px;
 }
 
-/* Each detail item */
 .detail-item {
-    background-color: #f4f6fb;
+    background: linear-gradient(135deg, #f4f6fb, #eef1f9);
     padding: 12px 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 0.95rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: #333;
+    transition: transform 0.2s ease;
 }
 
-/* Labels */
+.detail-item:hover {
+    transform: scale(1.03);
+}
+
 .detail-item .label {
     font-weight: 600;
     color: #555;
 }
 
-/* Temperature unit */
-.unit {
-    font-size: 1.5rem;
-    vertical-align: super;
-    margin-left: 4px;
+/* =========================
+   UTILITY
+========================= */
+.hidden {
+    display: none;
 }
 
-/* Smooth appearance animation */
-.weather-dislay,
-.error {
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
@@ -268,17 +243,98 @@ header p {
     }
 }
 
-/* Responsive tweak */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-
-    .temperature {
-        font-size: 2.5rem;
-    }
-
     header h1 {
         font-size: 1.6rem;
     }
+
+    .temperature {
+        font-size: 2.6rem;
+    }
+
+    .container {
+        padding: 22px;
+    }
 }
+
+
+/* =========================
+   THEME TOGGLE
+========================= */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: 0.4s;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary);
+}
+
+input:checked + .slider::before {
+    transform: translateX(24px);
+}
+

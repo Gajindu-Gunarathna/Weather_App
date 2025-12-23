@@ -40,7 +40,7 @@ function handleSearch(){
     fetchWeatherData(city)
 }
 
-//fecth weatherdat
+//fecth weatherdata
 async function  fetchWeatherData(city) {
     try {
         const url = `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
@@ -89,6 +89,32 @@ function displayWeatherData(data){
 function showWeatherDisplay(){
     weatherDisplay.classList.remove("hidden")
 }
+
+
+//New Function Dark mode
+
+// Dark Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.checked = true;
+}
+
+// Toggle theme
+themeToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+});
+
+
 
 function hideAllSections(){
     hideLoading()
